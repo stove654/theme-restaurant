@@ -1,0 +1,141 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <meta http-equiv="Content-Security-Policy" content="default-src *; script-src &apos;self&apos; &apos;unsafe-inline&apos; &apos;unsafe-eval&apos; *; style-src  &apos;self&apos; &apos;unsafe-inline&apos; *">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css(.) styles/vendor.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/angular-toastr/dist/angular-toastr.css" />
+    <link rel="stylesheet" href="bower_components/ionic/css/ionic.css" />
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:css(.tmp) styles/main.css -->
+    <link rel="stylesheet" href="styles/font-awesome.css">
+    <link rel="stylesheet" href="styles/flex.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/ghost.css"/>
+    <!-- endbuild -->
+  </head>
+  <body ng-app="quikieApp">
+    <!--[if lte IE 8]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+
+    <!-- Add your site or application content here -->
+    <ion-nav-view animation="no-animation"></ion-nav-view>
+
+
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
+<!--
+     <script>
+       !function(A,n,g,u,l,a,r){A.GoogleAnalyticsObject=l,A[l]=A[l]||function(){
+       (A[l].q=A[l].q||[]).push(arguments)},A[l].l=+new Date,a=n.createElement(g),
+       r=n.getElementsByTagName(g)[0],a.src=u,r.parentNode.insertBefore(a,r)
+       }(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+       ga('create', 'UA-XXXXX-X');
+       ga('send', 'pageview');
+    </script>
+-->
+
+    <!--<script src="//maps.googleapis.com/maps/api/js?key=AIzaSyB16sGmIekuGIvYOfNoW9T44377IU2d2Es&sensor=true"></script>-->
+    <!-- build:js(.) scripts/vendor.js -->
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <!-- bower:js -->
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-collection/angular-collection.min.js"></script>
+    <script src="bower_components/angular-simple-logger/dist/angular-simple-logger.js"></script>
+    <script src="bower_components/lodash/lodash.js"></script>
+    <script src="bower_components/angular-google-maps/dist/angular-google-maps.js"></script>
+    <script src="bower_components/angular-local-storage/dist/angular-local-storage.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/angular-touch/angular-touch.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="bower_components/angular-toastr/dist/angular-toastr.tpls.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="bower_components/ionic/js/ionic.js"></script>
+    <script src="bower_components/ionic/js/ionic-angular.js"></script>
+    <script src="bower_components/underscore/underscore.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <script src="cordova.js"></script>
+
+    <!-- build:js({.tmp,app}) scripts/scripts.js -->
+    <script src="scripts/routing-config.js"></script>
+    <script src="scripts/services/quikie.js"></script>
+    <script src="scripts/app.js"></script>
+    <script src="scripts/filters/menuItemSize.js"></script>
+    <script src="scripts/controllers/main.js"></script>
+    <script src="scripts/controllers/login.js"></script>
+    <script src="scripts/controllers/home.js"></script>
+    <script src="scripts/controllers/restaurant.js"></script>
+    <script src="scripts/controllers/restaurantlist.js"></script>
+    <script src="scripts/controllers/menu.js"></script>
+    <script src="scripts/services/order.js"></script>
+    <script src="scripts/controllers/order.js"></script>
+    <script src="scripts/controllers/category.js"></script>
+    <script src="scripts/controllers/ordersummary.js"></script>
+    <script src="scripts/controllers/orderPayment.js"></script>
+    <script src="scripts/controllers/confirmorder.js"></script>
+    <script src="scripts/controllers/intro.js"></script>
+    <script src="scripts/controllers/orders_history.js"></script>
+    <script src="scripts/controllers/order_history.js"></script>
+    <script src="scripts/servicesFacebook.js"></script>
+    <script src="scripts/services/math_number.js"></script>
+    <script src="scripts/facebookConnectPlugin.js"></script>
+    <!-- endbuild -->
+
+    <script src='http://maps.googleapis.com/maps/api/js?sensor=false'></script>
+
+<!--
+    <script src="scripts/services/auth.js"></script>
+    <script src="scripts/services/logger.js"></script>
+    <script src="scripts/services/socketio.js"></script>
+-->
+
+    <!--<script src="http://192.168.1.99:9999/socket.io/socket.io.js"></script>-->
+    <!--<script src="http://quikie-api.jodomax.com/socket.io/socket.io.js"></script>-->
+    <script src="http://api-dev.quikie.in/socket.io/socket.io.js"></script>
+    <!--<script src="http://api.quikie.in/socket.io/socket.io.js"></script>-->
+
+    <script>
+      document.addEventListener("deviceready", onDeviceReady, false);
+
+      function onDeviceReady() {
+        console.log(device.cordova);
+        console.log(device.model);
+        console.log(device.platform);
+        console.log(device.uuid);
+        console.log(device.version);
+
+        window.plugins.sim.getSimInfo(function(data){
+          console.log(data);
+        }, function(){});
+
+
+        // Enable to debug issues.
+        // window.plugins.OneSignal.setLogLevel({logLevel: 4, visualLevel: 4});
+
+        var notificationOpenedCallback = function(jsonData) {
+          console.log('didReceiveRemoteNotificationCallBack: ' + JSON.stringify(jsonData));
+        };
+
+        window.plugins.OneSignal.init("e4e1340a-6f9f-11e5-b171-4bc946e42811",
+            {googleProjectNumber: "282408061681"},
+            notificationOpenedCallback);
+
+        // Show an alert box if a notification comes in when the user is in your app.
+        window.plugins.OneSignal.enableInAppAlertNotification(true);
+      }
+
+    </script>
+    <div id="fb-root"></div>
+  </body>
+</html>
